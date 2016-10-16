@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 12, 2014, 3:04:05 PM
+    Author     : Adnane
+*/
+
+.spreadsheet-cell.error{
+    -fx-background-color: #E74C3C ;
+    -fx-background-insets: 0, 0 1 1 0;
+
+    -fx-alignment: center;
+    -fx-font-size : 11;
+
+
+
+}
+

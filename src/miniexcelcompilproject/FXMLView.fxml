@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniexcelcompilproject.FXMLDocumentController">
+    <children>
+      <Pane layoutY="132.0" prefHeight="445.0" prefWidth="900.0" fx:id="xlPreviewPane" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="900.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="menuItemNewFile" mnemonicParsing="false" text="New File">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemSave" mnemonicParsing="false" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" text="Save As">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemLoad" mnemonicParsing="false" text="Load">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem fx:id="menuItemExit" mnemonicParsing="false" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="menuItemUndo" mnemonicParsing="false" text="Undo">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemRedo" mnemonicParsing="false" text="Redo">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menuItemCopy" mnemonicParsing="false" text="Copy">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemPaste" mnemonicParsing="false" text="Paste">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemCut" mnemonicParsing="false" text="Cut">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" text="Delete">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="DELETE" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menuItemExpandMatrix" mnemonicParsing="false" text="Expand Matrix">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="D" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemShowError" mnemonicParsing="false" text="Show Error">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menuItemInsertFonction" mnemonicParsing="false" text="Insert Fonction">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="I" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="menuItemRefresh" mnemonicParsing="false" text="Refresh">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="F9" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutY="26.0" prefHeight="82.0" prefWidth="900.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="6.0" prefHeight="71.0" prefWidth="157.0" style="-fx-border-color: #333333;">
+               <children>
+                  <Button fx:id="saveAsButton" layoutX="82.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="      Save as">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="newFileButton" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="     New File">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="loadFileButton" layoutX="6.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="      Load File">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="saveButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="    Save">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/new.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="11.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/load.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="86.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/save.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="86.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/saveas.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="259.0" layoutY="6.0" prefHeight="71.0" prefWidth="157.0" style="-fx-border-color: #333333;">
+               <children>
+                  <Button fx:id="deleteButton" layoutX="80.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="   Delete">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="copyButton" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="  Copy">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="cutButton" layoutX="6.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text=" Cut">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="pasteButton" layoutX="80.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text=" Paste">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/copy.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="11.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/cut.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="84.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/paste.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="85.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/delete.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="422.0" layoutY="6.0" prefHeight="71.0" prefWidth="157.0" style="-fx-border-color: #333333;">
+               <children>
+                  <Button fx:id="showErrorButton" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="      Full Error">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="expandMatrixButton" layoutX="6.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Expand Matrix">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="refreshButton" layoutX="83.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="     Refresh">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/error.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="88.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/refresh.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="17.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/expand.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="175.0" layoutY="6.0" prefHeight="71.0" prefWidth="77.0" style="-fx-border-color: #333333;">
+               <children>
+                  <Button fx:id="undoButton" layoutX="4.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="    Undo">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button fx:id="redoButton" layoutX="4.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="    Redo">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/undo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="10.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/redo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="691.0" layoutY="6.0" prefHeight="71.0" prefWidth="205.0" style="-fx-border-color: #333333;">
+               <children>
+                  <Label layoutX="6.0" layoutY="6.0" text="Function Name : ">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="27.0" text="Function Type :">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="104.0" layoutY="48.0" text="MaxArgs : ">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelFunctionName" layoutX="104.0" layoutY="6.0" prefHeight="17.0" prefWidth="92.0" />
+                  <Label layoutX="132.0" layoutY="27.0" prefHeight="17.0" prefWidth="69.0" />
+                  <Label fx:id="labelMaxArgs" layoutX="162.0" layoutY="48.0" prefHeight="17.0" prefWidth="19.0" />
+                  <Label fx:id="labelMinArgs" layoutX="64.0" layoutY="49.0" prefHeight="17.0" prefWidth="19.0" />
+                  <Label layoutX="6.0" layoutY="48.0" text="MinArgs : ">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelFunctionType" layoutX="104.0" layoutY="27.0" prefHeight="17.0" prefWidth="92.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="583.0" layoutY="6.0" prefHeight="71.0" prefWidth="105.0" style="-fx-border-color: #333333;">
+               <children>
+                  <Rectangle fx:id="colorwhite" arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="14.0" layoutX="14.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="colorlightgreen" arcHeight="5.0" arcWidth="5.0" fill="#1abc9c" height="14.0" layoutX="34.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorblue" arcHeight="5.0" arcWidth="5.0" fill="#3498db" height="14.0" layoutX="74.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorgreen" arcHeight="5.0" arcWidth="5.0" fill="#40d47e" height="14.0" layoutX="54.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorred" arcHeight="5.0" arcWidth="5.0" fill="#e67e22" height="14.0" layoutX="54.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorheavyred" arcHeight="5.0" arcWidth="5.0" fill="#e74c3c" height="14.0" layoutX="74.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="coloryellow" arcHeight="5.0" arcWidth="5.0" fill="#f1c40f" height="14.0" layoutX="34.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorheavyblue" arcHeight="5.0" arcWidth="5.0" fill="#2980b9" height="14.0" layoutX="14.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorrose" arcHeight="5.0" arcWidth="5.0" fill="#ff1f83" height="14.0" layoutX="54.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="coloramethyst" arcHeight="5.0" arcWidth="5.0" fill="#8e44ad" height="14.0" layoutX="34.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorwisteria" arcHeight="5.0" arcWidth="5.0" fill="#9b59b6" height="14.0" layoutX="14.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+                  <Rectangle fx:id="colorblack" arcHeight="5.0" arcWidth="5.0" height="14.0" layoutX="74.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="14.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Rectangle>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="107.0" prefHeight="25.0" prefWidth="900.0">
+         <children>
+            <Button fx:id="ChoiceFonctionButton" layoutX="815.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="  Insert" />
+            <TextField fx:id="EditTextFormula" layoutX="40.0" prefHeight="25.0" prefWidth="675.0" promptText="Introduce the expression you want to evaluate">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </TextField>
+            <Label prefHeight="25.0" prefWidth="40.0" text="  Exp : ">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="12.0" />
+               </font>
+            </Label>
+            <MenuButton fx:id="menuButtonFunctions" layoutX="715.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0">
+               <items>
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <ChoiceBox fx:id="ArithmeticChoiceBoxFunction" prefHeight="25.0" prefWidth="102.0" />
+                     </content>
+                  </CustomMenuItem>
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <ChoiceBox fx:id="StatisticChoiceBoxFunction" prefHeight="25.0" prefWidth="102.0" />
+                     </content>
+                  </CustomMenuItem>
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <ChoiceBox fx:id="LogicalChoiceBoxFunction" prefHeight="25.0" prefWidth="102.0" />
+                     </content>
+                  </CustomMenuItem>
+               </items>
+            </MenuButton>
+            <Label fx:id="labelFunctions" layoutX="723.0" layoutY="4.0" prefHeight="17.0" prefWidth="69.0" text="Functions" />
+            <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="822.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/insert.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <FlowPane layoutY="580.0" prefHeight="20.0" prefWidth="900.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="92.0" text="   Selected Cell : ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelSelectedCell" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="46.0" />
+            <Label layoutX="102.0" layoutY="10.0" prefHeight="18.0" prefWidth="68.0" text="Full Value : ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelValue" layoutX="194.0" layoutY="10.0" prefHeight="18.0" prefWidth="328.0" />
+            <Label layoutX="286.0" layoutY="10.0" prefHeight="18.0" prefWidth="67.0" text="is a Matrix :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelIsMatrix" layoutX="442.0" layoutY="10.0" prefHeight="18.0" prefWidth="57.0" />
+            <Label layoutX="529.0" layoutY="10.0" prefHeight="18.0" prefWidth="45.0" text="Error :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelError" layoutX="616.0" layoutY="10.0" prefHeight="18.0" prefWidth="194.0" />
+         </children>
+      </FlowPane>
+    </children>
+</AnchorPane>
